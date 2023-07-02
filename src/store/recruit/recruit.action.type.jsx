@@ -1,0 +1,5 @@
+export const FETCH_RECRUITS = 'FETCH_RECRUITS'
+export const TOGGLE_LIKE = 'TOGGLE_LIKE'
+export const TOGGLE_JOIN = 'TOGGLE_JOIN'
+export const SET_JOINED_POSTS = 'SET_JOINED_POSTS'
+export const SET_LIKED_POSTS = 'SET_LIKED_POSTS'
