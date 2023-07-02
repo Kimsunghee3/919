@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+<img src="../919%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98.mov">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+1. 목적
 
-### `npm start`
+한국의 유저를 대상으로 한다.
+수많은 구독 서비스 중 한국인이 자주 이용하는 OTT 및 유튜브의 가격을 한 눈에 알아볼 수 있게 정리해 놓는 것이 1차 서비스 목적이며, 특히 우회의 가능성이 높은 유튜브의 경우 나라별 요금제를 원화로 환산하여 실시간 비교할 수 있게 구성한다.
+각 구독 서비스의 이용권(혹은 계정) 공유 기능을 활용하여 파티원을 구할 수 있는 커뮤니티를 개설하여 유저간 자유롭게 커뮤니티를 이용할 수 있도록 하는 것이 2차 목적이다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. 주요 기능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+기본적으로 유튜브, 넷플릭스, 디즈니플러스, 왓챠, 웨이브, 티빙의 구독 이용료를 종류별로 나타내주며, 이를 최소인원 ~ 최대인원(명)으로 나누어 1인당 결제 금액을 계산할 수 있는 계산기를 제공한다.
+유튜브의 경우 환율 API를 사용하여 현재 날짜에 맞는 환율을 계산해 각 국의 이용료를 원화로 나타낸다. 이 경우 가장 저렴한 5개의 국가를 명시해주며, 본 사이트에서 우회에 관한 정보는 일체 제공하지 않는다. 유튜브는 국가를 선택할 수 있으며, 선택 국가의 이용료를 적용하여 계산기를 이용할 수 있다.
+각 서비스별로 카테고리를 나누어 계산 시스템을 넣은 게시판을 생성, 게시판은 해당 서비스의 UI 디자인을 모티브로 하여 제작한다(간단한 로고 삽입 등의 방법 사용).
+커뮤니티 카테고리에서는 파티원을 구할 수 있는 게시글을 작성할 수 있으며, 정보 및 잡담 게시판을 추가적으로 제공한다.
 
-### `npm test`
+3. 부가적 기능(시간 남으면 할 것)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 각 OTT별 혜택 비교 서비스(할인 정보 등)
+- 필터를 이용한 OTT 추천 서비스
 
-### `npm run build`
+4. 예상 페이지
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Main
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 구독 이용료 계산기(1 / 6 = 7) // 추가적으로 플랫폼의 소개페이지가 들어감
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Youtube
+  - Netflix
+  - Disney +
+  - Watcha
+  - Wave
+  - Tving
 
-### `npm run eject`
+- Recruit (5)
+  - list
+  - view
+  - write
+  - modify
+  - delete
+- Information Board (5) -> 게시판의 종류가 두 가지뿐이므로 카테고리를 나누지 않고 hidden으로 category 필드 값 채울 예정
+  - list
+  - view
+  - write
+  - modify
+  - delete
+- Free Board
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - list
+  - view
+  - write
+  - modify
+  - delete
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Sign Up
+- Login
+- My Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Logout
 
-## Learn More
+- Admin
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. 요금제 정보
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. Project Rules
 
-### Code Splitting
+- 카멜 표기법 사용
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+7. Used package
+   설치한 패키지가 있으면 언급해주세요~!!!
+   새로운 패키지 설치 시 pull 받고 install 진행 필요!
 
-### Analyzing the Bundle Size
+8. router
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```jsx
+export const RecruitWriteTop = ({ color }) => {
+  const color = {
+    red: '#FF5858',
+    black: '#252525',
+    gray: '##535353',
+  }
+  return (
+    <>
+      <H2 color={color.red}>파티장</H2> <H2 color={color.black}>되기</H2>
+      <Span>파티장이 되시려면 몇 가지 정보가 필요해요.</Span>
+    </>
+  )
+}
+```
 
-### Making a Progressive Web App
+환율계산
+{Math.ceil(
+(data['ottPlan.price'] \*
+data['ottPlan.Country.Currencies.currencyValue']) /
+data['ottPlan.limit']
+)}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+{v['ottPlan.Country.Currencies.currencyValue'] != null
+? Math.ceil(
+(v['ottPlan.price'] \*
+v['ottPlan.Country.Currencies.currencyValue']) /
+v['ottPlan.limit']
+)
+: Math.ceil(v['ottPlan.price'] / v['ottPlan.limit'])}
